@@ -100,6 +100,31 @@ const journeyListEl = document.getElementById('journey-details-list');
 const journeyPrevBtn = document.getElementById('journeyPrevBtn');
 const journeyNextBtn = document.getElementById('journeyNextBtn');
 const journeyContentEl = document.querySelector('.journey-details-content');
+
+/**
+ * Calculates the horizontal and vertical offset for journey elements on mobile view.
+ * This is needed because the SVG is centered with CSS, creating a mismatch
+ * between the SVG's internal coordinates and the parent's coordinate system.
+ * @returns {{x: number, y: number}} The offset in pixels.
+ */
+function getJourneyMobileOffset() {
+    const journeyVisual = document.querySelector('.journey-visual');
+    if (!journeyVisual || !journeyPath || !journeyVisual.classList.contains('is-mobile')) {
+        return { x: 0, y: 0 };
+    }
+    const svgEl = journeyPath.ownerSVGElement;
+    if (!svgEl) return { x: 0, y: 0 };
+
+    const visualWidth = journeyVisual.offsetWidth;
+    const svgWidth = svgEl.offsetWidth;
+    
+    // The problematic CSS centers the SVG, so the offset is half the difference.
+    const offsetX = (visualWidth - svgWidth) / 2;
+    
+    return { x: offsetX, y: 0 };
+}
+
+
 /**
  * Animates the bus along the SVG path to a target percentage.
  */
@@ -108,6 +133,7 @@ function animateBus(targetPercentage) {
         return;
     }
     isBusAnimating = true;
+    const offset = getJourneyMobileOffset();
     const startPercentage = currentBusPercentage;
     const duration = 1200; // ms
     const pathLength = journeyPath.getTotalLength();
@@ -130,7 +156,7 @@ function animateBus(targetPercentage) {
         const nextPoint = journeyPath.getPointAtLength(pathLength * Math.min(percentage + 0.001, 1));
         const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) * (180 / Math.PI);
        
-        journeyBus.style.transform = `translate(${point.x}px, ${point.y}px) translate(-50%, -50%) rotate(${angle}deg)`;
+        journeyBus.style.transform = `translate(${point.x + offset.x}px, ${point.y + offset.y}px) translate(-50%, -50%) rotate(${angle}deg)`;
         if (progress < 1) {
             requestAnimationFrame(frame);
         } else {
@@ -146,10 +172,13 @@ function animateBus(targetPercentage) {
 function updateJourneyDisplay(index, shouldAnimate) {
     if (!journeyTitleEl || !journeyDescEl || !journeyListEl || !journeyPath || !journeyBus || !journeyContentEl) return;
     const data = journeyData[index];
-   
+    const journeyVisual = document.querySelector('.journey-visual');
+    const isMobile = journeyVisual && journeyVisual.classList.contains('is-mobile');
+
     // Update active node
     journeyNodes.forEach(n => n.classList.remove('active'));
     document.getElementById(data.nodeId)?.classList.add('active');
+
     // Fade out current content
     journeyContentEl.style.opacity = '0';
     // Update text content and fade in after a short delay
@@ -159,6 +188,12 @@ function updateJourneyDisplay(index, shouldAnimate) {
         journeyListEl.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
         journeyContentEl.style.opacity = '1';
     }, 300); // Adjust timing to feel smooth with CSS transition
+
+    // On mobile, we only update content and nodes, no bus animation.
+    if (isMobile) {
+        return;
+    }
+
     if (shouldAnimate) {
         animateBus(data.pathPercentage);
     } else {
@@ -166,11 +201,12 @@ function updateJourneyDisplay(index, shouldAnimate) {
         currentBusPercentage = data.pathPercentage;
         const pathLength = journeyPath.getTotalLength();
         if (pathLength > 0) {
+            const offset = getJourneyMobileOffset();
             const point = journeyPath.getPointAtLength(pathLength * currentBusPercentage);
             const nextPoint = journeyPath.getPointAtLength(pathLength * Math.min(currentBusPercentage + 0.001, 1));
             const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) * (180 / Math.PI);
             journeyBus.style.transition = 'none'; // Disable transition for instant move
-            journeyBus.style.transform = `translate(${point.x}px, ${point.y}px) translate(-50%, -50%) rotate(${angle}deg)`;
+            journeyBus.style.transform = `translate(${point.x + offset.x}px, ${point.y + offset.y}px) translate(-50%, -50%) rotate(${angle}deg)`;
             // Re-enable transitions (if any) after paint
             requestAnimationFrame(() => {
                 if (journeyBus) journeyBus.style.transition = '';
@@ -180,15 +216,28 @@ function updateJourneyDisplay(index, shouldAnimate) {
 }
 function setupJourneyNodesPositions() {
     if (!journeyPath || window.getComputedStyle(journeyPath).display === 'none') return;
+
+    const journeyVisual = document.querySelector('.journey-visual');
+    if (journeyVisual && journeyVisual.classList.contains('is-mobile')) {
+        // On mobile, nodes are positioned via flexbox in CSS. Clear inline styles.
+        journeyNodes.forEach(node => {
+            node.style.left = '';
+            node.style.top = '';
+        });
+        return;
+    }
+    
     const pathLength = journeyPath.getTotalLength();
     if (pathLength === 0) return;
+    
+    const offset = getJourneyMobileOffset(); // Will be {x:0, y:0} on desktop
    
     journeyData.forEach(data => {
         const nodeEl = document.getElementById(data.nodeId);
         if (nodeEl) {
             const point = journeyPath.getPointAtLength(pathLength * data.pathPercentage);
-            nodeEl.style.left = `${point.x}px`;
-            nodeEl.style.top = `${point.y}px`;
+            nodeEl.style.left = `${point.x + offset.x}px`;
+            nodeEl.style.top = `${point.y + offset.y}px`;
         }
     });
 }
@@ -786,3 +835,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
