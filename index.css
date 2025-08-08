@@ -743,6 +743,10 @@ nav ul li a:hover {
 .journey-visual.is-mobile {
     height: 350px;
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
@@ -756,9 +760,7 @@ nav ul li a:hover {
 }
 
 .journey-visual.is-mobile .journey-path-svg {
-    max-width: 100px;
-    margin: 0 auto;
-    right: 0;
+    display: none;
 }
 
 /* Yolculuk yolu */
@@ -781,9 +783,21 @@ nav ul li a:hover {
     z-index: 10; /* Katman sırası */
 }
 
+.journey-visual.is-mobile .journey-node {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0.25rem 0;
+}
+
 /* Yolculuk düğümü üzerine gelindiğinde */
 .journey-node:hover {
     transform: translate(-50%, -50%) scale(1.1); /* Büyüt */
+}
+
+.journey-visual.is-mobile .journey-node:hover {
+    transform: scale(1.1);
 }
 
 /* Yolculuk düğüm simgesi */
@@ -837,6 +851,10 @@ nav ul li a:hover {
     transform-origin: center; /* Dönüşüm merkezi */
     will-change: transform; /* Performans optimizasyonu */
     z-index: 5; /* Katman sırası */
+}
+
+.journey-visual.is-mobile #journey-bus {
+    display: none;
 }
 
 /* Yolculuk navigasyonu */
