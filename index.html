@@ -955,14 +955,27 @@
                             </div>
                         </div>
                         <form id="contactForm" class="contact-form">
-                            <h3 class="form-title">Mesaj Gönderin</h3>
+                            <h3 class="form-title">Demo Talep Formu</h3>
                             <div class="form-group">
-                                <input type="text" name="name" placeholder="Adınız Soyadınız" required aria-label="Adınız Soyadınız">
-                                <input type="email" name="email" placeholder="E-posta Adresiniz" required aria-label="E-posta Adresiniz">
+                                <input type="text" name="company" placeholder="Şirket Adı" required aria-label="Şirket Adı">
+                                <input type="text" name="contact_person" placeholder="Yetkili Kişinin Adı ve Soyadı" required aria-label="Yetkili Kişinin Adı ve Soyadı">
                             </div>
-                            <input type="text" name="subject" placeholder="Konu" required aria-label="Konu">
-                            <textarea name="message" placeholder="Mesajınız..." required aria-label="Mesajınız"></textarea>
-                            <button type="submit" class="demo-button">Gönder</button>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="E-posta Adresi" required aria-label="E-posta Adresi">
+                                <input type="tel" name="phone" placeholder="Telefon Numarası" required aria-label="Telefon Numarası">
+                            </div>
+                            <div class="form-group">
+                                <label for="fleet_size" class="form-label">Filo Büyüklüğü</label>
+                                <select name="fleet_size" id="fleet_size" required aria-label="Filo Büyüklüğü">
+                                    <option value="">Filo büyüklüğünü seçin</option>
+                                    <option value="1-20">1-20 araç</option>
+                                    <option value="21-50">21-50 araç</option>
+                                    <option value="51-100">51-100 araç</option>
+                                    <option value="100+">100+ araç</option>
+                                </select>
+                            </div>
+                            <textarea name="message" placeholder="Ek bilgiler veya mesajınız (isteğe bağlı)" aria-label="Ek bilgiler veya mesajınız"></textarea>
+                            <button type="submit" class="demo-button">Demo Talep Et</button>
                         </form>
                     </div>
                     <div class="contact-map-container">
