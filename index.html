@@ -13,12 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main" class="is-hidden" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">İçeriğe geç</a>
     <!-- Ana içerik kapsayıcısı -->
     <header>
         <nav>
             <!-- Logo bölümü -->
             <a href="/" class="logo" aria-label="Yoldayım Anasayfa" id="logo-link">
-                <img src="hazçr2-01(1).png" alt="Yoldayım Logo">
+                <img src="hazçr2-01(1).png" alt="Yoldayım Logo" decoding="async">
             </a>
             <!-- Navigasyon menüsü sarmalayıcısı -->
             <div class="nav-links-container" id="nav-links-container">
@@ -137,7 +138,7 @@
             </button>
         </nav>
     </header>
-    <main>
+    <main id="main" role="main">
         <!-- Açılış sayfası içeriği -->
         <div id="landing-page-content">
             <!-- Bölüm 1: Hero -->
@@ -156,9 +157,9 @@
                             </div>
                         </div>
                         <div class="hero-visual-container">
-                            <img src="Okul Servisi ve Aile İletişimi.png" alt="Yoldayım Platformu Ekran Görüntüsü" class="hero-image" data-slide-img="0">
-                            <img src="ChatGPT Image 6 Ağu 2025 19_00_19.png" alt="Okul Yönetimi için Kontrol Paneli" class="hero-image" data-slide-img="1">
-                            <img src="Baba ve Okul Servisi Bildirimi.png" alt="Veliler için Mobil Uygulama Arayüzü" class="hero-image" data-slide-img="2">
+                            <img src="Okul Servisi ve Aile İletişimi.png" alt="Yoldayım Platformu Ekran Görüntüsü" class="hero-image" data-slide-img="0" decoding="async" fetchpriority="high">
+                            <img src="ChatGPT Image 6 Ağu 2025 19_00_19.png" alt="Okul Yönetimi için Kontrol Paneli" class="hero-image" data-slide-img="1" loading="lazy" decoding="async">
+                            <img src="Baba ve Okul Servisi Bildirimi.png" alt="Veliler için Mobil Uygulama Arayüzü" class="hero-image" data-slide-img="2" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </section>
@@ -292,7 +293,7 @@
             </div>
         </div>
         <!-- Veliler (Ebeveynler) sayfa içeriği -->
-        <section id="veliler-page" style="display: none;">
+        <section id="veliler-page" class="is-hidden">
             <div class="container">
                 <!-- Veliler özellikleri ve görsel -->
                 <div class="veliler-grid">
@@ -425,7 +426,7 @@
             </div>
         </section>
         <!-- Okullar sayfa içeriği -->
-        <section id="okullar-page" class="okullar-page-theme" style="display: none;">
+        <section id="okullar-page" class="okullar-page-theme is-hidden">
             <div class="container">
                 <!-- Okullar kahraman bölümü -->
                 <div class="okullar-hero-new">
@@ -435,7 +436,7 @@
                         <button class="demo-button request-demo-btn">Demo Talep Edin</button>
                     </div>
                     <div class="okullar-hero-visual">
-                        <img src="https://placehold.co/1000x280/6A1B9A/FFFFFF?text=Yönetim+Paneli" alt="Yönetim Paneli" />
+                        <img src="https://placehold.co/1000x280/6A1B9A/FFFFFF?text=Yönetim+Paneli" alt="Yönetim Paneli" loading="lazy" decoding="async" />
                     </div>
                 </div>
            
@@ -489,28 +490,28 @@
                                 <h3>Gizli ve Güvenli İletişim</h3>
                                 <p>Velilere ait iletişim bilgileri, şoförler veya servis firmalarıyla paylaşılmadan koruma altına alınır. Böylece veli, okul ve servis arasındaki iletişim tamamen güvenli ve gizlilik ilkelerine uygun biçimde sağlanır.</p>
                                 <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/6A1B9A/FFFFFF?text=Güvenli+İletişim" alt="Güvenli İletişim" />
+                                     <img src="https://placehold.co/800x300/6A1B9A/FFFFFF?text=Güvenli+İletişim" alt="Güvenli İletişim" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="2">
                                 <h3>Her Adım Kayıt Altında</h3>
                                 <p>Tüm görüşme ve bilgilendirme süreçleri sistemde otomatik olarak kaydedilir, istenildiğinde raporlanabilir ve gerekirse sesli kayıtlar incelenebilir. Böylece hem veri güvenliği korunur, hem de KVKK gereklilikleri tam olarak yerine getirilir.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/6A1B9A/FFFFFF?text=Kayıt+ve+Raporlama" alt="Kayıt ve Raporlama" />
+                                     <img src="https://placehold.co/800x300/6A1B9A/FFFFFF?text=Kayıt+ve+Raporlama" alt="Kayıt ve Raporlama" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="3">
                                 <h3>Servis Trafiğine Anlık Denetim</h3>
                                 <p>Okul yönetimi, servis araçlarının giriş ve çıkış zamanlarını anında görebilir ve detaylı şekilde raporlayabilir. Böylece herhangi bir gecikme veya sorun hemen fark edilir, süreç hızlıca iyileştirilebilir ve velilerin yaşayabileceği aksaklıkların önüne geçilir.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/6A1B9A/FFFFFF?text=Anlık+Denetim" alt="Anlık Denetim" />
+                                     <img src="https://placehold.co/800x300/6A1B9A/FFFFFF?text=Anlık+Denetim" alt="Anlık Denetim" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="4">
                                 <h3>Servis Süreçlerinde Dijital Kontrol</h3>
                                 <p>Yoldayım’ın yenilikçi yönetim paneli sayesinde servis operasyonları daha etkin ve sorunsuz ilerlerken, dijital takip altyapısıyla süreçler daha şeffaf, emniyetli ve kolay yönetilebilir hale gelir. Bu da veli güveni ve memnuniyetini artırır.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/6A1B9A/FFFFFF?text=Dijital+Yönetim" alt="Dijital Yönetim" />
+                                     <img src="https://placehold.co/800x300/6A1B9A/FFFFFF?text=Dijital+Yönetim" alt="Dijital Yönetim" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                         </div>
@@ -559,7 +560,7 @@
             </div>
         </section>
         <!-- Servis Yöneticileri sayfa içeriği -->
-        <section id="servis-yoneticileri-page" class="servis-yoneticileri-page-theme" style="display: none;">
+        <section id="servis-yoneticileri-page" class="servis-yoneticileri-page-theme is-hidden">
             <div class="container">
                 <div class="okullar-hero-new">
                     <div class="section-header">
@@ -568,7 +569,7 @@
                         <button class="demo-button request-demo-btn">Demo Talep Edin</button>
                     </div>
                     <div class="okullar-hero-visual">
-                        <img src="https://placehold.co/1000x280/455A64/FFFFFF?text=Servis+Yönetim+Paneli" alt="Servis Yönetim Paneli" />
+                        <img src="https://placehold.co/1000x280/455A64/FFFFFF?text=Servis+Yönetim+Paneli" alt="Servis Yönetim Paneli" loading="lazy" decoding="async" />
                     </div>
                 </div>
            
@@ -630,35 +631,35 @@
                                 <h3>Anlık ve Geçmiş Takip – Raporlama Kolaylığı</h3>
                                 <p>Firmalar, Yoldayım ile servis süreçlerini hem o anda hem de geriye dönük olarak tam anlamıyla kontrol edebilir. Sistem, gelişmiş takip ve raporlama araçlarıyla operasyonların daha akıcı yürümesini sağlarken, veli ve okul yönetiminin memnuniyetini en üst seviyeye taşır.</p>
                                 <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Raporlama" alt="Raporlama" />
+                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Raporlama" alt="Raporlama" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="2">
                                 <h3>Hızlı ve Güvenli Bilgilendirme</h3>
                                 <p>Servis şoförü, öğrencinin yolculuk bilgilerini tek bir tuşla veliye iletebilir; böylece araç kullanırken telefonda konuşmaya gerek kalmaz ve iletişim tamamen güvenli bir şekilde sağlanır.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Güvenli+İletişim" alt="Güvenli İletişim" />
+                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Güvenli+İletişim" alt="Güvenli İletişim" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="3">
                                 <h3>Dinamik Öğrenci Listesi ve Otomatik Yoklama</h3>
                                 <p>Yoldayım, servise kayıtlı tüm öğrencilerin listesini otomatik olarak sürücünün ekranına yansıtır ve her öğrenci, güzergahına göre servislere otomatik eşleştirilir. Akıllı yoklama özelliğiyle: Öğrencilerin biniş, iniş ve devamsızlıkları anlık olarak izlenir. Okul çıkışında hiçbir öğrencinin unutulmadığından emin olunur. Olası aksaklıkların önüne geçilerek hem velilerin hem de okul yönetiminin içi rahat olur.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Otomatik+Yoklama" alt="Otomatik Yoklama" />
+                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Otomatik+Yoklama" alt="Otomatik Yoklama" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="4">
                                 <h3>Otomatik Adres ve Güzergah Bilgisi</h3>
                                 <p>Yoldayım’ın entegre navigasyon özelliği, öğrencilerin adres ve güzergah bilgisini doğrudan sürücü ekranına aktarır. Böylece: Yeni şoförler rotayı hızlıca öğrenir, deneyimli şoförler ihtiyaç duyduğunda kolayca bilgiye ulaşır. Öğrenci alım ve bırakma işlemleri hızlanır, zaman kayıpları önlenir. Servis süreci daha verimli ve düzenli hale gelir.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Akıllı+Rota" alt="Akıllı Rota" />
+                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Akıllı+Rota" alt="Akıllı Rota" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="5">
                                 <h3>Sistemli ve Konforlu Sürüş Deneyimi</h3>
                                 <p>Yoldayım Sürücü Paneli, kullanıcı dostu arayüzüyle şoförlere rahat bir kullanım sunar ve bekleme kaynaklı zaman kayıplarını en aza indirir. Bu sayede: Tüm güzergah ve öğrenci bilgileri anında görüntülenir. Bekleme süreleri minimuma iner, süreç hem şoför hem de aileler için daha düzenli ve güvenli olur.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Sürücü+Paneli" alt="Sürücü Paneli" />
+                                     <img src="https://placehold.co/800x300/455A64/FFFFFF?text=Sürücü+Paneli" alt="Sürücü Paneli" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                         </div>
@@ -706,7 +707,7 @@
             </div>
         </section>
         <!-- Sürücüler sayfa içeriği -->
-        <section id="suruculer-page" class="suruculer-page-theme" style="display: none;">
+        <section id="suruculer-page" class="suruculer-page-theme is-hidden">
             <div class="container">
                 <div class="okullar-hero-new">
                     <div class="section-header">
@@ -715,7 +716,7 @@
                         <button class="demo-button request-demo-btn">Hemen Başlayın</button>
                     </div>
                     <div class="okullar-hero-visual">
-                        <img src="https://placehold.co/1000x280/009688/FFFFFF?text=Sürücü+Paneli" alt="Sürücü Paneli" />
+                        <img src="https://placehold.co/1000x280/009688/FFFFFF?text=Sürücü+Paneli" alt="Sürücü Paneli" loading="lazy" decoding="async" />
                     </div>
                 </div>
            
@@ -795,49 +796,49 @@
                                 <h3>Öğrenci Listesi ve Yoklama Takibi</h3>
                                 <p>Servise kayıtlı öğrencilerin listesi otomatik olarak şoför ekranına yansır. Öğrencilerin bindiği, indiği ya da binmediği bilgisi anlık olarak işlenir ve toplu yoklama güncellemesi ile zaman kazandırır. Bu sayede veli ve okul yönetimiyle oluşabilecek aksaklıklar önlenir.</p>
                                 <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Akıllı+Yoklama" alt="Akıllı Yoklama" />
+                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Akıllı+Yoklama" alt="Akıllı Yoklama" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="2">
                                 <h3>Güzergah ve Adres Yönetimi</h3>
                                 <p>Navigasyon destekli sistem, öğrenci adres bilgilerini otomatik olarak ekrana aktarır. Yeni şoförler güzergahı kolayca öğrenir, öğrenci alım ve bırakma süreçleri hızlanır. Durak bazlı öğrenci yönetimi ile düzenli ve verimli bir sürüş sağlanır.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Optimum+Rota" alt="Optimum Rota" />
+                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Optimum+Rota" alt="Optimum Rota" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                              <div class="feature-tab-pane" data-tab="3">
                                 <h3>Araç ve Şoför Atama Sistemi</h3>
                                 <p>Herhangi bir şoför değişikliği durumunda, sistem anında güncellenerek yeni şoför bilgilerini ilgili güzergah ve araçla eşleştirir. Bu esnek yapı, operasyonel sürekliliği sağlar ve acil durumlarda hızlıca aksiyon alınmasına olanak tanır.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Esnek+Atama" alt="Esnek Atama" />
+                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Esnek+Atama" alt="Esnek Atama" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="4">
                                 <h3>Kullanıcı Dostu Arayüz</h3>
                                 <p>Şoför panelimiz, karmaşadan uzak, basit ve anlaşılır bir tasarıma sahiptir. Anlık öğrenci ve güzergah bilgileri tek bir ekranda görünür. Bu sayede bekleme süresi en aza iner, süreç güvenli, hızlı ve sistemli hale gelir.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Kolay+Kullanım" alt="Kolay Kullanım" />
+                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Kolay+Kullanım" alt="Kolay Kullanım" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="5">
                                 <h3>Gerçek Zamanlı Bildirimler</h3>
                                 <p>Öğrenci binme/inme durumları, güzergah değişiklikleri ve olası gecikmeler gibi kritik bilgiler, tek tuşla anlık olarak velilere ve okul yönetimine iletilir. Bu proaktif iletişim, güveni artırır ve herkesi bilgilendirir.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Anlık+Bildirimler" alt="Anlık Bildirimler" />
+                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Anlık+Bildirimler" alt="Anlık Bildirimler" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                              <div class="feature-tab-pane" data-tab="6">
                                 <h3>Güvenlik ve Veri Koruma</h3>
                                 <p>Tüm veri iletişimi ve aktarımı, en güncel şifreleme teknolojileriyle korunur. Erişim kontrolleri ve kullanıcı yetkilendirme sistemleri ile hem sizin hem de velilerin verileri daima güvendedir.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Veri+Güvenliği" alt="Veri Güvenliği" />
+                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=Veri+Güvenliği" alt="Veri Güvenliği" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                             <div class="feature-tab-pane" data-tab="7">
                                 <h3>Destek Hizmetleri</h3>
                                 <p>Karşılaşabileceğiniz her türlü teknik sorun veya soru için 7/24 yanınızdayız. Kullanıcı eğitimleri ve danışmanlık hizmetlerimizle sistemden en iyi şekilde faydalanmanızı sağlıyoruz. Platformumuz sürekli güncellemelerle daha da iyileştirilir.</p>
                                  <div class="tab-pane-visual">
-                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=7/24+Destek" alt="7/24 Destek" />
+                                     <img src="https://placehold.co/800x300/009688/FFFFFF?text=7/24+Destek" alt="7/24 Destek" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                         </div>
@@ -885,7 +886,7 @@
             </div>
         </section>
         <!-- Misyonumuz sayfa içeriği -->
-        <section id="misyonumuz-page" class="about-page" style="display: none;">
+        <section id="misyonumuz-page" class="about-page is-hidden">
             <div class="container">
                 <div class="about-hero-visual about-hero-misyon">
                     <svg class="hero-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
@@ -898,7 +899,7 @@
         </section>
    
         <!-- Vizyonumuz sayfa içeriği -->
-        <section id="vizyonumuz-page" class="about-page" style="display: none;">
+        <section id="vizyonumuz-page" class="about-page is-hidden">
             <div class="container">
                 <div class="about-hero-visual about-hero-vizyon">
                     <svg class="hero-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
@@ -911,7 +912,7 @@
         </section>
    
         <!-- Biz Kimiz sayfa içeriği -->
-        <section id="biz-kimiz-page" class="about-page" style="display: none;">
+        <section id="biz-kimiz-page" class="about-page is-hidden">
             <div class="container">
                 <div class="about-hero-visual about-hero-biz-kimiz">
                     <svg class="hero-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -925,7 +926,7 @@
         </section>
        
         <!-- İletişim sayfa içeriği -->
-        <section id="iletisim-page" class="about-page" style="display: none;">
+        <section id="iletisim-page" class="about-page is-hidden">
             <div class="container">
                 <div class="section-header">
                     <h1 class="section-title">Bize Ulaşın</h1>
@@ -954,27 +955,21 @@
                                 </div>
                             </div>
                         </div>
-                        <form id="contactForm" class="contact-form">
+                        <form id="contactForm" class="contact-form" novalidate>
                             <h3 class="form-title">Demo Talep Formu</h3>
-                            <div class="form-group">
-                                <input type="text" name="company" placeholder="Şirket Adı" required aria-label="Şirket Adı">
-                                <input type="text" name="contact_person" placeholder="Yetkili Kişinin Adı ve Soyadı" required aria-label="Yetkili Kişinin Adı ve Soyadı">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder="E-posta Adresi" required aria-label="E-posta Adresi">
-                                <input type="tel" name="phone" placeholder="Telefon Numarası" required aria-label="Telefon Numarası">
-                            </div>
-                            <div class="form-group">
-                                <label for="fleet_size" class="form-label">Filo Büyüklüğü</label>
-                                <select name="fleet_size" id="fleet_size" required aria-label="Filo Büyüklüğü">
-                                    <option value="">Filo büyüklüğünü seçin</option>
+                                <input type="text" name="company" placeholder="*Şirket Adı" required aria-label="Şirket Adı">
+                                <input type="text" name="address" placeholder="*Adres" required aria-label="Adres">
+                                <input type="text" name="contact_person" placeholder="*Yetkili Kişinin Adı ve Soyadı" required aria-label="Yetkili Kişinin Adı ve Soyadı">
+                                <input type="email" name="email" placeholder="E-posta Adresi" optional aria-label="E-posta Adresi">
+                                <input type="tel" name="phone" placeholder="*Telefon Numarası" required aria-label="Telefon Numarası">
+                                <select name="fleet_size" id="fleet_size" placeholder="Filo büyüklüğünü seçin">
+                                    <option value="">*Filo büyüklüğünü seçin</option>
                                     <option value="1-20">1-20 araç</option>
                                     <option value="21-50">21-50 araç</option>
                                     <option value="51-100">51-100 araç</option>
                                     <option value="100+">100+ araç</option>
                                 </select>
-                            </div>
-                            <textarea name="message" placeholder="Ek bilgiler veya mesajınız (isteğe bağlı)" aria-label="Ek bilgiler veya mesajınız"></textarea>
+                            <textarea name="message" placeholder="Ek bilgiler veya mesajınız" aria-label="Ek bilgiler veya mesajınız"></textarea>
                             <button type="submit" class="demo-button">Demo Talep Et</button>
                         </form>
                     </div>
@@ -989,6 +984,6 @@
             </section>
     </main>
     <!-- Etkileşim için JavaScript modülü -->
-    <script type="module" src="index.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

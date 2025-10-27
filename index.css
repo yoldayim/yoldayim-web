@@ -53,6 +53,57 @@ html, body {
     overflow: hidden;
 }
 
+/* Yardımcı sınıflar */
+.is-hidden {
+    display: none !important;
+}
+
+/* Erişilebilirlik yardımcıları */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    z-index: 9999;
+}
+
+/* Odak (focus-visible) stili - klavye kullanıcıları için belirginlik */
+button:focus-visible,
+a:focus-visible,
+.feature-tab-button:focus-visible,
+.journey-arrow:focus-visible,
+.faq-question:focus-visible,
+.accordion-header:focus-visible,
+.mobile-menu-toggle:focus-visible,
+.testimonial-dot:focus-visible {
+    outline: 3px solid var(--secondary-blue);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+/* Tercih: azaltılmış hareket - animasyon ve geçişleri minimize et */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+    .indicator-arrow { animation: none !important; }
+}
+
 #landing-page-content {
     /* Bu, ana kaydırılabilir kapsayıcı olacak */
     height: 100vh;
@@ -741,12 +792,13 @@ nav ul li a:hover {
     transition: height 0.4s ease;
 }
 .journey-visual.is-mobile {
-    height: 350px;
+    height: 160px;
     margin-top: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 
@@ -788,7 +840,7 @@ nav ul li a:hover {
     left: auto;
     top: auto;
     transform: none;
-    margin: 0.25rem 0;
+    margin: 0 0.25rem;
 }
 
 /* Yolculuk düğümü üzerine gelindiğinde */
@@ -1932,7 +1984,11 @@ nav ul li a:hover {
 .contact-form {
     display: flex; /* Esnek kutu düzeni */
     flex-direction: column; /* Dikey sıralama */
-    gap: 1rem; /* Elemanlar arası boşluk */
+    gap: 1.25rem; /* Gruplar arası boşluk */
+    padding: 1.5rem; /* İç boşluk */
+    border-radius: var(--border-radius-lg); /* Kart köşeleri */
+    background: #fff; /* Kart arka planı */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* Yumuşak gölge */
 }
 
 /* İletişim formu grubu */
@@ -1943,23 +1999,26 @@ nav ul li a:hover {
 
 /* İletişim formu giriş alanları */
 .contact-form input,
+.contact-form select,
 .contact-form textarea {
     width: 100%; /* Tam genişlik */
     padding: 1rem; /* İç boşluk */
-    border-radius: var(--border-radius-sm); /* Küçük yuvarlak köşeler */
+    border-radius: var(--border-radius-md); /* Daha yumuşak köşeler */
     border: 1px solid var(--border-color); /* Kenarlık */
     font-family: var(--font-family); /* Yazı tipi */
     font-size: 1rem; /* Yazı boyutu */
-    background-color: var(--background-color); /* Arka plan rengi */
+    background-color: #fafafa; /* Nötr arka plan */
     transition: box-shadow 0.2s ease, border-color 0.2s ease; /* Geçiş animasyonları */
 }
 
 /* İletişim formu giriş alanları odaklandığında */
 .contact-form input:focus,
+.contact-form select:focus,
 .contact-form textarea:focus {
     outline: none; /* Varsayılan çerçeveyi kaldır */
     border-color: var(--secondary-blue); /* İkincil mavi kenarlık */
-    box-shadow: 0 0 0 3px rgba(29, 104, 255, 0.2); /* Hafif gölge */
+    box-shadow: 0 0 0 4px rgba(29, 104, 255, 0.14); /* Odak halkası */
+    background-color: #fff; /* Odakta beyaz zemin */
 }
 
 /* İletişim formu metin alanı */
@@ -1968,11 +2027,43 @@ nav ul li a:hover {
     resize: vertical; /* Dikey yeniden boyutlandırma */
 }
 
+/* Etiket stili */
+.contact-form .form-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--secondary-text);
+    margin-bottom: 0.25rem;
+}
+
+/* Select için modern ok ve görünüm */
+.contact-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #9ca3af 50%), linear-gradient(135deg, #9ca3af 50%, transparent 50%), linear-gradient(to right, #d1d5db, #d1d5db);
+    background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px), calc(100% - 2.5rem) 50%;
+    background-size: 6px 6px, 6px 6px, 1px 60%;
+    background-repeat: no-repeat;
+}
+
 /* İletişim formu demo butonu */
 .contact-form .demo-button {
     width: 100%; /* Tam genişlik */
     padding: 1rem; /* İç boşluk */
     font-size: 1.1rem; /* Yazı boyutu */
+}
+
+/* Buton mikro etkileşimleri */
+.contact-form .demo-button {
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform 0.08s ease, box-shadow 0.2s ease;
+}
+
+.contact-form .demo-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 /* İletişim harita kapsayıcısı */
@@ -2403,6 +2494,7 @@ nav.mobile-menu-open .mobile-menu-toggle .icon-menu { display: none; }
     .about-content p { font-size: 1.1rem; }
     .contact-grid { grid-template-columns: 1fr; }
     .contact-map-container { min-height: 300px; }
+    .contact-form { padding: 1rem; }
     .contact-form .form-group { flex-direction: column; }
     .newsletter-section { padding: 3rem 1rem; }
 }
