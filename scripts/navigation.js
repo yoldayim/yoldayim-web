@@ -120,18 +120,43 @@ export function initNavigation() {
                 if (window.history && window.history.pushState) {
                     window.history.replaceState({ page: pageId }, '', path);
                 }
+                return true;
             }
-        } else {
-            // Varsayılan olarak ana sayfayı göster
-            showPage(landingPageContent);
         }
+        // Varsayılan olarak ana sayfayı göster (sadece root path için)
+        if (path === '/' || path === '/index.html') {
+            showPage(landingPageContent);
+            return true;
+        }
+        return false;
     }
 
-    // Sayfa yüklendiğinde route'u kontrol et
-    handleRoute();
+    // Route handling'i DOM hazır olduktan sonra yap
+    // index.js'de DOMContentLoaded event'inde initNavigation çağrıldığı için
+    // burada DOM zaten hazır olacak
+    function initRoute() {
+        // Kısa bir gecikme ile route'u kontrol et (DOM'un tamamen hazır olması için)
+        setTimeout(() => {
+            handleRoute();
+        }, 0);
+    }
+
+    // İlk yüklemede route'u kontrol et
+    initRoute();
 
     // Popstate event (geri/ileri butonları için)
-    window.addEventListener('popstate', handleRoute);
+    window.addEventListener('popstate', () => {
+        setTimeout(() => {
+            handleRoute();
+        }, 0);
+    });
+    
+    // Sayfa yüklendiğinde de tekrar kontrol et (güvenlik için)
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            handleRoute();
+        }, 0);
+    });
 }
 
 

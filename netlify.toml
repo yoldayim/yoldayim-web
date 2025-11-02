@@ -1,0 +1,62 @@
+# Netlify yapılandırması
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# SPA routing - tüm route'lar index.html'e yönlendirilir
+[[redirects]]
+  from = "/gizlilik-politikasi"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/kullanim-kosullari"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/veliler"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/okullar"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/servis-yoneticileri"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/suruculer"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/misyonumuz"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/vizyonumuz"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/biz-kimiz"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/iletisim"
+  to = "/index.html"
+  status = 200
+
+# Fallback - tüm diğer route'lar
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+

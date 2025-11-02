@@ -1,3 +1,12 @@
-# Netlify için redirect kuralı (eğer Netlify kullanılıyorsa)
-/*          /index.html   200
-
+# Netlify için SPA routing - tüm URL'ler index.html'e yönlendirilir
+/gizlilik-politikasi    /index.html   200
+/kullanim-kosullari     /index.html   200
+/veliler                /index.html   200
+/okullar                /index.html   200
+/servis-yoneticileri    /index.html   200
+/suruculer              /index.html   200
+/misyonumuz             /index.html   200
+/vizyonumuz             /index.html   200
+/biz-kimiz              /index.html   200
+/iletisim               /index.html   200
+/*                      /index.html   200
