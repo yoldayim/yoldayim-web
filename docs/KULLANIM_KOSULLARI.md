@@ -25,15 +25,15 @@ Yoldayım, öğrenci taşımacılığı hizmetlerinin dijital platform üzerinde
 - **Okul Yönetimi Paneli:** Okulunuzun öğrenci ve servis bilgilerini yönetme
 - **Servis Şirketi Paneli:** Şirketinizin şoför, araç ve müşteri bilgilerini yönetme
 - **Sistem Yönetimi Paneli:** Genel sistem yönetimi (Super Admin)
- - **Gerçek Zamanlı Takip:** Şoför cihazından gelen GPS verileri ile ETA ve durak durumları
- - **Hedefli Bildirimler:** OneSignal üzerinden rol bazlı kişiselleştirilmiş bildirimler
- - **Bildirim Tercih Yönetimi:** Kullanıcıların bildirim türlerini yönetebilme
+- **Gerçek Zamanlı Takip:** Şoför cihazından gelen GPS verileri ile ETA ve durak durumları
+- **Hedefli Bildirimler:** **Anlık bildirim (push notification) servis sağlayıcısı** üzerinden rol bazlı kişiselleştirilmiş bildirimler
+- **Bildirim Tercih Yönetimi:** Kullanıcıların bildirim türlerini yönetebilme
 
 ### 2.3 Hizmet Sınırları
 - Uygulama sadece bilgi yönetimi sağlar, fiziksel taşımacılık hizmeti vermez
 - Acil durumlarda 7/24 destek sağlanmaz
 - İnternet bağlantısı gereklidir
- - Google Maps ve OneSignal gibi üçüncü taraf servisler üzerinden sağlanan hizmetlerde bu servislerin kesinti/kota politikaları geçerlidir
+- Google Maps ve **anlık bildirim servis sağlayıcıları** gibi üçüncü taraf servisler üzerinden sağlanan hizmetlerde bu servislerin kesinti/kota politikaları geçerlidir
 
 ## 3. KULLANICI YÜKÜMLÜLÜKLERİ
 
@@ -105,7 +105,7 @@ Aşağıdaki kullanımlar kesinlikle yasaktır:
 - Güvenli veri saklama
 - Kullanıcı destek hizmeti
 - Düzenli sistem güncellemeleri
- - Arka plan işlerinin (BullMQ/Redis) güvenli ve izole şekilde çalıştırılması
+- Arka plan işlerinin (görev kuyruklarının) güvenli ve izole şekilde çalıştırılması
 
 ### 4.2 Güvenlik
 - Veri güvenliği önlemleri
@@ -130,7 +130,7 @@ Aşağıdaki durumlarda hizmet kesintisi olabilir ve sorumluluk sınırlıdır:
 - Üçüncü taraf servis arızalarından doğan zararlar
 - Kullanıcı hatasından doğan zararlar
 - Sistem bakım sürelerinden doğan zararlar
- - Üçüncü taraf API (Google Maps Distance Matrix, OneSignal vb.) kota ve politika kısıtları nedeniyle oluşan aksaklıklar
+- Üçüncü taraf API (Google Maps Distance Matrix, **anlık bildirim servis sağlayıcıları** vb.) kota ve politika kısıtları nedeniyle oluşan aksaklıklar
 
 ## 5. FİKRİ MÜLKİYET HAKLARI
 
@@ -291,8 +291,8 @@ Sistem aşağıdaki bildirim türlerini desteklemektedir:
 - Cihaz kaydı sırasında varsayılan tercihler otomatik oluşturulur
 
 ### 12.3 Bildirim Kanalları
-- **Push Notification:** OneSignal üzerinden
-- **E-posta:** Gmail SMTP üzerinden
+- **Push Notification:** **Anlık bildirim servis sağlayıcısı** üzerinden
+- **E-posta:** **E-posta altyapı sağlayıcısı** üzerinden
 - **SMS:** SMS servis sağlayıcısı üzerinden
 
 ### 12.4 Bildirim Güvenliği
