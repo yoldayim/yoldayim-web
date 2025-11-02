@@ -1,0 +1,3 @@
+# Netlify için redirect kuralı (eğer Netlify kullanılıyorsa)
+/*          /index.html   200
+

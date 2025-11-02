@@ -29,6 +29,10 @@ export default defineConfig(({ mode }) => {
               res.end(JSON.stringify({ ok: true }));
               return;
             }
+            // SPA routing - tüm sayfaları index.html'e yönlendir
+            if (req.method === 'GET' && !req.url.startsWith('/api') && !req.url.startsWith('/node_modules') && !req.url.includes('.')) {
+              req.url = '/index.html';
+            }
             next();
           });
         }

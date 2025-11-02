@@ -1,5 +1,20 @@
 import { qs, qsa, on } from './utils/dom.js';
 
+// URL routing mapping
+const routeMap = {
+    '/': 'landing-page-content',
+    '/gizlilik-politikasi': 'gizlilik-politikasi-page',
+    '/kullanim-kosullari': 'kullanim-kosullari-page',
+    '/veliler': 'veliler-page',
+    '/okullar': 'okullar-page',
+    '/servis-yoneticileri': 'servis-yoneticileri-page',
+    '/suruculer': 'suruculer-page',
+    '/misyonumuz': 'misyonumuz-page',
+    '/vizyonumuz': 'vizyonumuz-page',
+    '/biz-kimiz': 'biz-kimiz-page',
+    '/iletisim': 'iletisim-page'
+};
+
 export function initNavigation() {
     const landingPageContent = qs('#landing-page-content');
     const logoLink = qs('#logo-link');
@@ -11,6 +26,8 @@ export function initNavigation() {
     const vizyonumuzNavLink = qs('#vizyonumuz-nav-link');
     const bizKimizNavLink = qs('#biz-kimiz-nav-link');
     const iletisimNavLink = qs('#iletisim-nav-link');
+    const gizlilikPolitikasiNavLink = qs('#gizlilik-politikasi-nav-link');
+    const kullanimKosullariNavLink = qs('#kullanim-kosullari-nav-link');
     const velilerPage = qs('#veliler-page');
     const okullarPage = qs('#okullar-page');
     const servisYoneticileriPage = qs('#servis-yoneticileri-page');
@@ -19,9 +36,12 @@ export function initNavigation() {
     const vizyonumuzPage = qs('#vizyonumuz-page');
     const bizKimizPage = qs('#biz-kimiz-page');
     const iletisimPage = qs('#iletisim-page');
+    const gizlilikPolitikasiPage = qs('#gizlilik-politikasi-page');
+    const kullanimKosullariPage = qs('#kullanim-kosullari-page');
     const allPages = [
         landingPageContent, velilerPage, okullarPage, servisYoneticileriPage,
-        suruculerPage, misyonumuzPage, vizyonumuzPage, bizKimizPage, iletisimPage
+        suruculerPage, misyonumuzPage, vizyonumuzPage, bizKimizPage, iletisimPage,
+        gizlilikPolitikasiPage, kullanimKosullariPage
     ];
 
     function hideAllPages() {
@@ -57,13 +77,22 @@ export function initNavigation() {
         { link: misyonumuzNavLink, page: misyonumuzPage },
         { link: vizyonumuzNavLink, page: vizyonumuzPage },
         { link: bizKimizNavLink, page: bizKimizPage },
-        { link: iletisimNavLink, page: iletisimPage }
+        { link: iletisimNavLink, page: iletisimPage },
+        { link: gizlilikPolitikasiNavLink, page: gizlilikPolitikasiPage },
+        { link: kullanimKosullariNavLink, page: kullanimKosullariPage }
     ];
 
     navLinksAndPages.forEach(({ link, page }) => {
         if (!link) return;
         on(link, 'click', (e) => {
             e.preventDefault();
+            
+            // URL'i güncelle
+            const path = Object.keys(routeMap).find(key => routeMap[key] === page.id);
+            if (path && window.history && window.history.pushState) {
+                window.history.pushState({ page: page.id }, '', path);
+            }
+            
             showPage(page);
         });
     });
@@ -77,6 +106,32 @@ export function initNavigation() {
             }
         });
     });
+
+    // URL routing - sayfa yüklendiğinde veya URL değiştiğinde
+    function handleRoute() {
+        const path = window.location.pathname;
+        const pageId = routeMap[path];
+        
+        if (pageId) {
+            const targetPage = qs(`#${pageId}`);
+            if (targetPage) {
+                showPage(targetPage);
+                // URL'i güncelle (hash kullanmadan)
+                if (window.history && window.history.pushState) {
+                    window.history.replaceState({ page: pageId }, '', path);
+                }
+            }
+        } else {
+            // Varsayılan olarak ana sayfayı göster
+            showPage(landingPageContent);
+        }
+    }
+
+    // Sayfa yüklendiğinde route'u kontrol et
+    handleRoute();
+
+    // Popstate event (geri/ileri butonları için)
+    window.addEventListener('popstate', handleRoute);
 }
 
 
