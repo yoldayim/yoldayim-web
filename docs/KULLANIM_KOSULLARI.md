@@ -175,15 +175,18 @@ Aşağıdaki durumlarda hesap askıya alınabilir:
 ## 7. VERİ SAKLAMA VE SİLME
 
 ### 7.1 Veri Saklama
-- Hesap aktif olduğu sürece veriler saklanır
-- Yasal yükümlülükler için belirli süreler boyunca saklanabilir
-- Güvenlik amaçlı log kayıtları tutulur
- - Şoför konum kayıtları (ham GPS verisi) en fazla **30 gün** saklanır ve otomatik olarak silinir.
+Hizmet sağlayıcı, kullanıcı verilerini aşağıdaki süreler boyunca saklar:
+- Hesap aktif olduğu sürece tüm kullanıcı verileri saklanır
+- Hesap kapatıldıktan sonra, yasal saklama yükümlülükleri ve KVKK hükümleri çerçevesinde gerekli veriler belirli süreler boyunca saklanabilir
+- Güvenlik amaçlı log kayıtları yasal yükümlülükler çerçevesinde saklanır
+- Şoför konum kayıtları (ham GPS verisi) en fazla **30 gün** saklanır ve otomatik olarak silinir
+- Yasal yükümlülükler (vergi, muhasebe, ticari kayıtlar vb.) nedeniyle bazı veriler yasal saklama süreleri boyunca saklanır
 
 ### 7.2 Veri Silme
-- Hesap kapatıldığında veriler silinir
-- KVKK kapsamında silme talepleri değerlendirilir
-- Yasal yükümlülükler nedeniyle bazı veriler saklanabilir
+- Hesap aktifliği bittikten (hesap kapatıldıktan) sonra, yasal saklama yükümlülükleri tamamlandığında kullanıcı verileri silinir
+- KVKK kapsamında silme talepleri değerlendirilir ve yasal süreler içinde işleme alınır
+- Yasal yükümlülükler (vergi, muhasebe, ticari kayıtlar, dava ve icra işlemleri vb.) nedeniyle bazı veriler yasal saklama süreleri boyunca saklanabilir
+- Hesap kapatıldıktan sonra, yasal saklama yükümlülükleri olmayan veriler en kısa sürede silinir
 
 ## 8. SORUMLULUK SINIRLAMASI
 
@@ -200,8 +203,8 @@ Aşağıdaki durumlarda hesap askıya alınabilir:
 ## 9. UYUŞMAZLIK ÇÖZÜMÜ
 
 ### 9.1 Yetkili Mahkeme
+- Yetkili mahkeme, Hukuk Muhakemeleri Kanunu (HMK) hükümleri uyarınca belirlenecektir
 - İstanbul Mahkemeleri ve İcra Müdürlükleri yetkilidir
-- Türk Hukuku uygulanır
 
 ### 9.2 Alternatif Çözüm
 - Öncelikle dostane çözüm aranır
@@ -318,4 +321,4 @@ Sistem aşağıdaki bildirim türlerini desteklemektedir:
 
 ---
 
-*Bu Kullanım Koşulları Türk Hukuku'na tabidir ve İstanbul Mahkemeleri yetkilidir.*
+*Yetkili mahkeme, Hukuk Muhakemeleri Kanunu (HMK) hükümleri uyarınca belirlenecektir. İstanbul Mahkemeleri ve İcra Müdürlükleri yetkilidir.*

@@ -195,7 +195,7 @@ body.legal-page-active .mobile-menu-toggle {
 }
 
 body.legal-page-active nav {
-    justify-content: flex-start; /* Logo'yu sola hizala */
+    justify-content: center; /* Logo'yu ortala */
 }
 
 /* Navigasyon listesi */
@@ -1003,6 +1003,16 @@ nav ul li a:hover {
     display: flex; /* Esnek kutu düzeni */
     align-items: center; /* Dikeyde ortala */
     justify-content: center; /* Yatayda ortala */
+}
+
+.journey-details-visual img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: inherit;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 /* Yer tutucu simge */
@@ -2436,7 +2446,7 @@ nav.mobile-menu-open .mobile-menu-toggle .icon-menu { display: none; }
     }
     
     body.legal-page-active nav {
-        justify-content: flex-start; /* Logo'yu sola hizala */
+        justify-content: center; /* Logo'yu ortala */
     }
     
     nav ul {
