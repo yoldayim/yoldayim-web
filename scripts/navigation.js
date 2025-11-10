@@ -57,6 +57,7 @@ export function initNavigation() {
             
             // Gizlilik politikası ve kullanım koşulları sayfaları için özel class ekle
             const legalPageIds = ['gizlilik-politikasi-page', 'kullanim-kosullari-page'];
+            const logoLink = qs('#logo-link');
             if (legalPageIds.includes(pageToShow.id)) {
                 document.body.classList.add('legal-page-active');
                 // Mobil menü açıksa kapat
@@ -64,8 +65,18 @@ export function initNavigation() {
                 if (nav) {
                     nav.classList.remove('mobile-menu-open');
                 }
+                // Logo link'ini devre dışı bırak
+                if (logoLink) {
+                    logoLink.style.pointerEvents = 'none';
+                    logoLink.style.cursor = 'default';
+                }
             } else {
                 document.body.classList.remove('legal-page-active');
+                // Logo link'ini tekrar aktif et
+                if (logoLink) {
+                    logoLink.style.pointerEvents = '';
+                    logoLink.style.cursor = '';
+                }
             }
             
             if (pageToShow.id === 'landing-page-content') {
@@ -99,6 +110,13 @@ export function initNavigation() {
     navLinksAndPages.forEach(({ link, page }) => {
         if (!link) return;
         on(link, 'click', (e) => {
+            // Gizlilik politikası ve kullanım koşulları sayfalarında logo'ya tıklamayı engelle
+            if (link.id === 'logo-link' && document.body.classList.contains('legal-page-active')) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            
             e.preventDefault();
             
             // URL'i güncelle

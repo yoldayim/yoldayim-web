@@ -2,9 +2,9 @@ import { qs, qsa } from './utils/dom.js';
 
 export function initJourney() {
     const journeyData = [
-        { id: 'parent', nodeId: 'node-parent', pathPercentage: 0.08, title: 'Veliler İçin Gözünüz Arkada Kalmasın', description: 'Çocuğunuzun her an güvende olduğunu bilmenin huzurunu yaşayın. Gelişmiş takip sistemimiz ve anlık bildirimlerle, okul yolculuğunun her adımını kolayca izleyin.', features: ['Servis aracını harita üzerinde canlı takip etme','Araç eve yaklaştığında otomatik bildirim alma','Öğrencinin servise biniş ve iniş anlarından haberdar olma','Sürücü veya okul ile anında iletişim kurma'] },
-        { id: 'service', nodeId: 'node-service', pathPercentage: 0.5, title: 'Servis Firmaları İçin Verimlilik ve Kontrol', description: 'Operasyonel maliyetlerinizi düşürürken hizmet kalitenizi artırın. Akıllı rota planlama ve filo yönetimi ile iş süreçlerinizi optimize edin.', features: ['Yakıt ve zaman tasarrufu sağlayan rota optimizasyonu','Araç ve sürücü performansını tek panelden izleme','Velilerle ve okullarla anlık, kolay iletişim','Detaylı raporlama ile operasyonel verimliliği ölçme'] },
-        { id: 'school', nodeId: 'node-school', pathPercentage: 0.92, title: 'Okul Yönetimi İçin Tam Koordinasyon', description: 'Tüm servis operasyonunu tek bir ekrandan yöneterek idari yükü azaltın. Öğrenci güvenliğini en üst düzeyeye çıkarın ve veli memnuniyetini artırın.', features: ['Tüm servislerin anlık konumunu ve durumunu görüntüleme','Öğrenci yoklama ve devamlılık takibini dijitalleştirme','Acil durum ve duyuruları tüm paydaşlara anında iletme','Veli, servis ve okul arasında şeffaf bir iletişim köprüsü kurma'] }
+        { id: 'parent', nodeId: 'node-parent', pathPercentage: 0.08, title: 'Veliler! Gözünüz Arkada Kalmasın', description: 'Çocuğunuzun her an güvende olduğunu bilmenin huzurunu yaşayın. Gelişmiş takip sistemimiz ve anlık bildirimlerle, okul yolculuğunun her adımını kolayca izleyin.', features: ['Servis aracını harita üzerinde canlı takip etme','Araç eve yaklaştığında otomatik bildirim alma','Öğrencinin servise biniş ve iniş anlarından haberdar olma','Sürücü veya okul ile anında iletişim kurma'], image: 'in-app-screenshots/Parent@3x.png', imageAlt: 'Veli mobil uygulaması ekran görüntüsü' },
+        { id: 'service', nodeId: 'node-service', pathPercentage: 0.5, title: 'Servis Firmaları İçin Verimlilik ve Kontrol', description: 'Operasyonel maliyetlerinizi düşürürken hizmet kalitenizi artırın. Akıllı rota planlama ve filo yönetimi ile iş süreçlerinizi optimize edin.', features: ['Yakıt ve zaman tasarrufu sağlayan rota optimizasyonu','Araç ve sürücü performansını tek panelden izleme','Velilerle ve okullarla anlık, kolay iletişim','Detaylı raporlama ile operasyonel verimliliği ölçme'], image: 'in-app-screenshots/Servis@3x.png', imageAlt: 'Servis yönetimi ekran görüntüsü' },
+        { id: 'school', nodeId: 'node-school', pathPercentage: 0.92, title: 'Okul Yönetimi İçin Tam Koordinasyon', description: 'Tüm servis operasyonunu tek bir ekrandan yöneterek idari yükü azaltın. Öğrenci güvenliğini en üst düzeyeye çıkarın ve veli memnuniyetini artırın.', features: ['Tüm servislerin anlık konumunu ve durumunu görüntüleme','Öğrenci yoklama ve devamlılık takibini dijitalleştirme','Acil durum ve duyuruları tüm paydaşlara anında iletme','Veli, servis ve okul arasında şeffaf bir iletişim köprüsü kurma'], image: 'in-app-screenshots/Okul@3x.png', imageAlt: 'Okul yönetimi ekran görüntüsü' }
     ];
     let currentJourneyIndex = 0;
     let currentBusPercentage = 0;
@@ -18,6 +18,7 @@ export function initJourney() {
     const journeyPrevBtn = document.getElementById('journeyPrevBtn');
     const journeyNextBtn = document.getElementById('journeyNextBtn');
     const journeyContentEl = document.querySelector('.journey-details-content');
+    const journeyImageEl = document.getElementById('journey-details-image');
     if (!journeyPath || !journeyBus) return;
 
     function getJourneyMobileOffset() {
@@ -69,6 +70,10 @@ export function initJourney() {
             journeyTitleEl.textContent = data.title;
             journeyDescEl.textContent = data.description;
             journeyListEl.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+            if (journeyImageEl) {
+                journeyImageEl.src = data.image;
+                journeyImageEl.alt = data.imageAlt;
+            }
             journeyContentEl.style.opacity = '1';
         }, 300);
         if (isMobile) return;
