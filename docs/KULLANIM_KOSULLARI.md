@@ -5,7 +5,7 @@
 ## 1. GENEL HÜKÜMLER
 
 ### 1.1 Taraflar
-- **Hizmet Sağlayıcı:** Yoldayım Teknoloji Ltd. Şti. ("Yoldayım", "Şirket", "Biz")
+- **Hizmet Sağlayıcı:** Yoldayım Teknoloji ("Yoldayım", "Şirket", "Biz")
 - **Kullanıcı:** Uygulamayı kullanan tüm kişi ve kurumlar ("Kullanıcı", "Siz")
 
 ### 1.2 Sözleşmenin Kapsamı
@@ -311,7 +311,7 @@ Sistem aşağıdaki bildirim türlerini desteklemektedir:
 - Önceki tüm anlaşmalar bu koşullarla değiştirilmiş sayılır
 
 ### 13.3 İletişim Bilgileri
-**Yoldayım Teknoloji Ltd. Şti.**
+**Yoldayım Teknoloji**
 - **E-posta:** info@yoldayim.com
 - **Telefon:** +90 546 733 23 39
 - **Adres:** Düzce/Merkez

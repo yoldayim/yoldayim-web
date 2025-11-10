@@ -6,7 +6,16 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       port: 5173,
-      open: '/index.html'
+      open: '/index.html',
+      fs: {
+        strict: false, // Dosya sistemi kısıtlamalarını kaldır
+      }
+    },
+    css: {
+      devSourcemap: false, // Development'ta source map'i devre dışı bırak (PostCSS timeout'unu önler)
+    },
+    optimizeDeps: {
+      exclude: ['postcss'], // PostCSS'yi optimize edilmiş bağımlılıklardan hariç tut
     },
     // Expose ACTION/METHOD to the client for backward compatibility
     define: {

@@ -185,6 +185,19 @@ nav:hover {
     justify-content: space-between; /* Bağlantılar ve buton arasını ayır */
 }
 
+/* Gizlilik politikası ve kullanım koşulları sayfalarında navigasyon menüsünü gizle */
+body.legal-page-active .nav-links-container {
+    display: none;
+}
+
+body.legal-page-active .mobile-menu-toggle {
+    display: none;
+}
+
+body.legal-page-active nav {
+    justify-content: flex-start; /* Logo'yu sola hizala */
+}
+
 /* Navigasyon listesi */
 nav ul {
     list-style: none; /* Liste işaretlerini kaldır */
@@ -2411,6 +2424,19 @@ nav.mobile-menu-open .mobile-menu-toggle .icon-menu { display: none; }
 
     nav.mobile-menu-open .nav-links-container {
         transform: translateX(0);
+    }
+    
+    /* Gizlilik politikası ve kullanım koşulları sayfalarında mobil menüyü de gizle */
+    body.legal-page-active .nav-links-container {
+        display: none !important;
+    }
+    
+    body.legal-page-active .mobile-menu-toggle {
+        display: none !important;
+    }
+    
+    body.legal-page-active nav {
+        justify-content: flex-start; /* Logo'yu sola hizala */
     }
     
     nav ul {

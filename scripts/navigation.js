@@ -54,6 +54,20 @@ export function initNavigation() {
             pageToShow.classList.remove('is-hidden');
             window.scrollTo(0, 0);
             qsa('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
+            
+            // Gizlilik politikası ve kullanım koşulları sayfaları için özel class ekle
+            const legalPageIds = ['gizlilik-politikasi-page', 'kullanim-kosullari-page'];
+            if (legalPageIds.includes(pageToShow.id)) {
+                document.body.classList.add('legal-page-active');
+                // Mobil menü açıksa kapat
+                const nav = qs('nav');
+                if (nav) {
+                    nav.classList.remove('mobile-menu-open');
+                }
+            } else {
+                document.body.classList.remove('legal-page-active');
+            }
+            
             if (pageToShow.id === 'landing-page-content') {
                 document.body.style.height = '100%';
                 document.documentElement.style.height = '100%';
