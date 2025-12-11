@@ -2165,7 +2165,7 @@ nav ul li a:hover {
 .contact-text strong {
     font-weight: 600; /* Kalın yazı */
     font-size: 1.05rem; /* Yazı boyutu */
-    color: var(--primary-text); /* Ana metin rengi */
+    color: var (--primary-text); /* Ana metin rengi */
 }
 
 /* İletişim metni açıklama ve bağlantı */
@@ -2718,4 +2718,42 @@ nav.mobile-menu-open .mobile-menu-toggle .icon-menu { display: none; }
     .contact-form { padding: 1rem; }
     .contact-form .form-group { flex-direction: column; }
     .newsletter-section { padding: 3rem 1rem; }
+}
+
+/* Yasal sayfalarda logo ortalama */
+body.legal-page-active .logo {
+    margin: 0 auto; /* Logoyu yatayda ortala */
+    position: static !important; /* Mutlak konumlandırmayı tamamen sıfırla */
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+}
+
+body.legal-page-active nav {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+/* Mobil için özel düzeltme */
+@media (max-width: 992px) {
+    body.legal-page-active nav {
+        padding: 0 1.5rem;
+        height: var(--header-height-mobile);
+    }
+    
+    body.legal-page-active .logo {
+        position: static !important;
+        left: auto !important;
+        right: auto !important;
+        margin: 0 auto;
+    }
+    
+    body.legal-page-active .logo img {
+        position: relative !important;
+        transform: translateY(-50%) scale(2) !important;
+        left: 0 !important;
+        transform-origin: center center !important;
+    }
 }
