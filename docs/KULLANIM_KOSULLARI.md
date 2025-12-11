@@ -204,7 +204,6 @@ Hizmet sağlayıcı, kullanıcı verilerini aşağıdaki süreler boyunca saklar
 
 ### 9.1 Yetkili Mahkeme
 - Yetkili mahkeme, Hukuk Muhakemeleri Kanunu (HMK) hükümleri uyarınca belirlenecektir
-- İstanbul Mahkemeleri ve İcra Müdürlükleri yetkilidir
 
 ### 9.2 Alternatif Çözüm
 - Öncelikle dostane çözüm aranır
@@ -321,4 +320,4 @@ Sistem aşağıdaki bildirim türlerini desteklemektedir:
 
 ---
 
-*Yetkili mahkeme, Hukuk Muhakemeleri Kanunu (HMK) hükümleri uyarınca belirlenecektir. İstanbul Mahkemeleri ve İcra Müdürlükleri yetkilidir.*
+*Yetkili mahkeme, Hukuk Muhakemeleri Kanunu (HMK) hükümleri uyarınca belirlenecektir.*
