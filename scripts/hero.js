@@ -4,16 +4,16 @@ export function initHero() {
     const heroEl = qs('.hero');
     const heroSlides = [
         {
+            title: 'Artık Tüm Çocuklar Servis Yolunda Güvende!',
+            description: 'Çocuğunuzun servise bindiği andan indiği ana kadar tüm süreci anlık bildirimlerle takip edin. Huzurlu bir gün geçirin.'
+        },
+        {
             title: 'Aileleri ve Servisleri Güvenle Buluşturuyoruz.',
             description: 'Velileri, servis firmalarını ve okulları tek çatı altında buluşturan yeni nesil platform: Anlık rota takibi ve akıllı zamanlama ile daha güvenli ve verimli yolculuklar.'
         },
         {
-            title: 'Okul Yönetimi İçin Tam Kontrol.',
+            title: 'Servis Yönetimi İçin Tam Kontrol Sağlıyoruz.',
             description: 'Servis operasyonlarınızı tek bir panelden yönetin, raporlar alın ve velilerle anında iletişim kurun. Verimliliği ve güvenliği en üst düzeye çıkarın.'
-        },
-        {
-            title: 'Veliler İçin Gözünüz Arkada Kalmasın.',
-            description: 'Çocuğunuzun servise bindiği andan indiği ana kadar tüm süreci anlık bildirimlerle takip edin. Huzurlu bir gün geçirin.'
         }
     ];
     const slideDuration = 5000;
