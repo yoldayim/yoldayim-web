@@ -3609,10 +3609,14 @@ nav.mobile-menu-open .mobile-menu-toggle .icon-menu {
     #misyonumuz-page,
     #vizyonumuz-page,
     #biz-kimiz-page,
-    #veli-on-kayit-page,
     #iletisim-page {
         padding-top: calc(var(--header-height-mobile) + 2rem);
         padding-bottom: 3rem;
+    }
+
+    #veli-on-kayit-page {
+        padding-top: calc(var(--header-height-mobile) + 1rem);
+        padding-bottom: 2rem;
     }
 }
 
