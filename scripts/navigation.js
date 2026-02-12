@@ -6,6 +6,7 @@ const routeMap = {
     '/gizlilik-politikasi': 'gizlilik-politikasi-page',
     '/kullanim-kosullari': 'kullanim-kosullari-page',
     '/veliler': 'veliler-page',
+    '/veli-on-kayit': 'veli-on-kayit-page',
     '/okullar': 'okullar-page',
     '/servis-yoneticileri': 'servis-yoneticileri-page',
     '/suruculer': 'suruculer-page',
@@ -29,6 +30,7 @@ export function initNavigation() {
     const gizlilikPolitikasiNavLink = qs('#gizlilik-politikasi-nav-link');
     const kullanimKosullariNavLink = qs('#kullanim-kosullari-nav-link');
     const velilerPage = qs('#veliler-page');
+    const veliOnKayitPage = qs('#veli-on-kayit-page');
     const okullarPage = qs('#okullar-page');
     const servisYoneticileriPage = qs('#servis-yoneticileri-page');
     const suruculerPage = qs('#suruculer-page');
@@ -39,7 +41,7 @@ export function initNavigation() {
     const gizlilikPolitikasiPage = qs('#gizlilik-politikasi-page');
     const kullanimKosullariPage = qs('#kullanim-kosullari-page');
     const allPages = [
-        landingPageContent, velilerPage, okullarPage, servisYoneticileriPage,
+        landingPageContent, velilerPage, veliOnKayitPage, okullarPage, servisYoneticileriPage,
         suruculerPage, misyonumuzPage, vizyonumuzPage, bizKimizPage, iletisimPage,
         gizlilikPolitikasiPage, kullanimKosullariPage
     ];
@@ -54,21 +56,29 @@ export function initNavigation() {
             pageToShow.classList.remove('is-hidden');
             window.scrollTo(0, 0);
             qsa('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
-            
-            // Gizlilik politikası ve kullanım koşulları sayfaları için özel class ekle
-            const legalPageIds = ['gizlilik-politikasi-page', 'kullanim-kosullari-page'];
+
+            // Gizlilik politikası, kullanım koşulları ve veli ön kayıt sayfaları için nav'ı gizle
+            const minimalNavPageIds = ['gizlilik-politikasi-page', 'kullanim-kosullari-page', 'veli-on-kayit-page'];
             const logoLink = qs('#logo-link');
-            if (legalPageIds.includes(pageToShow.id)) {
+            if (minimalNavPageIds.includes(pageToShow.id)) {
                 document.body.classList.add('legal-page-active');
                 // Mobil menü açıksa kapat
                 const nav = qs('nav');
                 if (nav) {
                     nav.classList.remove('mobile-menu-open');
                 }
-                // Logo link'ini devre dışı bırak
-                if (logoLink) {
-                    logoLink.style.pointerEvents = 'none';
-                    logoLink.style.cursor = 'default';
+                // Logo link'ini sadece legal sayfalar için devre dışı bırak
+                const legalOnlyIds = ['gizlilik-politikasi-page', 'kullanim-kosullari-page'];
+                if (legalOnlyIds.includes(pageToShow.id)) {
+                    if (logoLink) {
+                        logoLink.style.pointerEvents = 'none';
+                        logoLink.style.cursor = 'default';
+                    }
+                } else {
+                    if (logoLink) {
+                        logoLink.style.pointerEvents = '';
+                        logoLink.style.cursor = '';
+                    }
                 }
             } else {
                 document.body.classList.remove('legal-page-active');
@@ -78,7 +88,7 @@ export function initNavigation() {
                     logoLink.style.cursor = '';
                 }
             }
-            
+
             if (pageToShow.id === 'landing-page-content') {
                 document.body.style.height = '100%';
                 document.documentElement.style.height = '100%';
@@ -116,15 +126,15 @@ export function initNavigation() {
                 e.stopPropagation();
                 return;
             }
-            
+
             e.preventDefault();
-            
+
             // URL'i güncelle
             const path = Object.keys(routeMap).find(key => routeMap[key] === page.id);
             if (path && window.history && window.history.pushState) {
                 window.history.pushState({ page: page.id }, '', path);
             }
-            
+
             showPage(page);
         });
     });
@@ -143,7 +153,7 @@ export function initNavigation() {
     function handleRoute() {
         const path = window.location.pathname;
         const pageId = routeMap[path];
-        
+
         if (pageId) {
             const targetPage = qs(`#${pageId}`);
             if (targetPage) {
@@ -182,7 +192,7 @@ export function initNavigation() {
             handleRoute();
         }, 0);
     });
-    
+
     // Sayfa yüklendiğinde de tekrar kontrol et (güvenlik için)
     window.addEventListener('load', () => {
         setTimeout(() => {

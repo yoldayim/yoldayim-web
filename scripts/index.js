@@ -9,6 +9,7 @@ import { initTestimonials } from './testimonials.js';
 import { initTabs } from './tabs.js';
 import { initFaq } from './faq.js';
 import { initMobileMenu } from './mobileMenu.js';
+import { initVeliForm } from './veliForm.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initScroll();
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initFaq();
     initMobileMenu();
+    initVeliForm();
 });
 
 
