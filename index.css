@@ -1720,6 +1720,7 @@ nav ul li a:hover {
 #misyonumuz-page,
 #vizyonumuz-page,
 #biz-kimiz-page,
+#veli-on-kayit-page,
 #iletisim-page {
     padding-top: calc(var(--header-spacing-desktop));
     animation: fadeIn 0.5s ease-in-out;
