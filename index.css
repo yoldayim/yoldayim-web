@@ -264,6 +264,30 @@ nav:hover {
     /* Bağlantılar ve buton arasını ayır */
 }
 
+/* Sayfa başlığı (Header'da ortalı) */
+.header-page-title {
+    display: none;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary-text);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+body.veli-on-kayit-active .header-page-title {
+    display: block;
+}
+
+body.veli-on-kayit-active nav {
+    justify-content: flex-start !important;
+}
+
+body.veli-on-kayit-active .logo {
+    margin: 0 !important;
+}
+
 /* Gizlilik politikası ve kullanım koşulları sayfalarında navigasyon menüsünü gizle */
 body.legal-page-active .nav-links-container {
     display: none;
@@ -3866,7 +3890,7 @@ body.legal-page-active nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    margin-bottom: 3rem;
+    margin-top: 3rem;
 }
 
 .veli-feature-card {

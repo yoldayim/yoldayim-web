@@ -62,6 +62,11 @@ export function initNavigation() {
             const logoLink = qs('#logo-link');
             if (minimalNavPageIds.includes(pageToShow.id)) {
                 document.body.classList.add('legal-page-active');
+                if (pageToShow.id === 'veli-on-kayit-page') {
+                    document.body.classList.add('veli-on-kayit-active');
+                } else {
+                    document.body.classList.remove('veli-on-kayit-active');
+                }
                 // Mobil menü açıksa kapat
                 const nav = qs('nav');
                 if (nav) {
@@ -82,6 +87,7 @@ export function initNavigation() {
                 }
             } else {
                 document.body.classList.remove('legal-page-active');
+                document.body.classList.remove('veli-on-kayit-active');
                 // Logo link'ini tekrar aktif et
                 if (logoLink) {
                     logoLink.style.pointerEvents = '';
