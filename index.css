@@ -1092,13 +1092,15 @@ nav ul li a:hover {
 }
 
 .journey-visual.is-mobile {
-    height: 160px;
-    margin-top: 0;
+    height: auto;
+    min-height: 380px;
+    margin-top: 1rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 1rem 0;
 }
 
 
@@ -1157,7 +1159,9 @@ nav ul li a:hover {
     left: auto;
     top: auto;
     transform: none;
-    margin: 0 0.25rem;
+    margin: 0;
+    width: 100%;
+    max-width: 120px;
 }
 
 /* Yolculuk düğümü üzerine gelindiğinde */
@@ -1400,7 +1404,7 @@ nav ul li a:hover {
     height: auto;
     object-fit: contain;
     border-radius: inherit;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Yer tutucu simge */
@@ -3291,6 +3295,10 @@ nav.mobile-menu-open .mobile-menu-toggle .icon-menu {
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
+    .header-page-title {
+        display: none !important;
+    }
+
     #landing-page-content {
         scroll-snap-type: none;
         overflow-y: auto;
@@ -3521,13 +3529,19 @@ nav.mobile-menu-open .mobile-menu-toggle .icon-menu {
         flex-direction: column;
         gap: 2rem;
         min-height: auto;
-        padding: 2rem;
+        padding: 1.5rem;
     }
 
     .journey-details-visual {
         width: 100%;
-        min-height: 200px;
-        flex-basis: 200px;
+        min-height: 250px;
+        flex-basis: auto;
+        order: -1;
+        /* Görseli mobilde üste al */
+    }
+
+    .journey-details-visual img {
+        max-height: 300px;
     }
 
     .veliler-grid {
