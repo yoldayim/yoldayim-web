@@ -13,7 +13,8 @@ const routeMap = {
     '/misyonumuz': 'misyonumuz-page',
     '/vizyonumuz': 'vizyonumuz-page',
     '/biz-kimiz': 'biz-kimiz-page',
-    '/iletisim': 'iletisim-page'
+    '/iletisim': 'iletisim-page',
+    '/demo-talep': 'demo-talep-page'
 };
 
 export function initNavigation() {
@@ -29,8 +30,12 @@ export function initNavigation() {
     const iletisimNavLink = qs('#iletisim-nav-link');
     const gizlilikPolitikasiNavLink = qs('#gizlilik-politikasi-nav-link');
     const kullanimKosullariNavLink = qs('#kullanim-kosullari-nav-link');
+    const headerDemoLink = qs('#header-demo-link');
+    const okullarDemoLink = qs('#okullar-demo-link');
+    const servisDemoLink = qs('#servis-demo-link');
     const velilerPage = qs('#veliler-page');
     const veliOnKayitPage = qs('#veli-on-kayit-page');
+    const demoTalepPage = qs('#demo-talep-page');
     const okullarPage = qs('#okullar-page');
     const servisYoneticileriPage = qs('#servis-yoneticileri-page');
     const suruculerPage = qs('#suruculer-page');
@@ -41,7 +46,7 @@ export function initNavigation() {
     const gizlilikPolitikasiPage = qs('#gizlilik-politikasi-page');
     const kullanimKosullariPage = qs('#kullanim-kosullari-page');
     const allPages = [
-        landingPageContent, velilerPage, veliOnKayitPage, okullarPage, servisYoneticileriPage,
+        landingPageContent, velilerPage, veliOnKayitPage, demoTalepPage, okullarPage, servisYoneticileriPage,
         suruculerPage, misyonumuzPage, vizyonumuzPage, bizKimizPage, iletisimPage,
         gizlilikPolitikasiPage, kullanimKosullariPage
     ];
@@ -58,11 +63,11 @@ export function initNavigation() {
             qsa('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
 
             // Gizlilik politikası, kullanım koşulları ve veli ön kayıt sayfaları için nav'ı gizle
-            const minimalNavPageIds = ['gizlilik-politikasi-page', 'kullanim-kosullari-page', 'veli-on-kayit-page'];
+            const minimalNavPageIds = ['gizlilik-politikasi-page', 'kullanim-kosullari-page', 'veli-on-kayit-page', 'demo-talep-page'];
             const logoLink = qs('#logo-link');
             if (minimalNavPageIds.includes(pageToShow.id)) {
                 document.body.classList.add('legal-page-active');
-                if (pageToShow.id === 'veli-on-kayit-page') {
+                if (pageToShow.id === 'veli-on-kayit-page' || pageToShow.id === 'demo-talep-page') {
                     document.body.classList.add('veli-on-kayit-active');
                 } else {
                     document.body.classList.remove('veli-on-kayit-active');
@@ -120,7 +125,10 @@ export function initNavigation() {
         { link: bizKimizNavLink, page: bizKimizPage },
         { link: iletisimNavLink, page: iletisimPage },
         { link: gizlilikPolitikasiNavLink, page: gizlilikPolitikasiPage },
-        { link: kullanimKosullariNavLink, page: kullanimKosullariPage }
+        { link: kullanimKosullariNavLink, page: kullanimKosullariPage },
+        { link: headerDemoLink, page: demoTalepPage },
+        { link: okullarDemoLink, page: demoTalepPage },
+        { link: servisDemoLink, page: demoTalepPage }
     ];
 
     navLinksAndPages.forEach(({ link, page }) => {

@@ -185,7 +185,7 @@
                     <li id="iletisim-nav-link"><a href="#">İletişim</a></li>
                 </ul>
                 <!-- Demo talep düğmesi -->
-                <button class="demo-button request-demo-btn">Demo Talep</button>
+                <a href="/demo-talep" class="demo-button" id="header-demo-link">Demo Talep</a>
             </div>
             <!-- Mobil menü açma/kapama düğmesi -->
             <button class="mobile-menu-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false"
@@ -673,7 +673,8 @@
                                 <span>Ücretsiz Ön Kayıt</span>
                             </div>
                             <h2 class="veli-form-title">Çocuğunuz İçin Güvenli Servis Talebinizi Oluşturun</h2>
-                            <p class="veli-form-description">Formu doldurarak okul servis süreçlerinin dijitalleşmesi ve daha güvenli hale gelmesi için ilk adımı atın.</p>
+                            <p class="veli-form-description">Formu doldurarak okul servis süreçlerinin dijitalleşmesi ve
+                                daha güvenli hale gelmesi için ilk adımı atın.</p>
                             <ul class="veli-form-benefits">
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -810,6 +811,87 @@
                 </div>
             </div>
         </section>
+
+        <!-- Demo Talep Bağımsız Sayfa -->
+        <section id="demo-talep-page" class="about-page is-hidden">
+            <div class="container">
+                <div class="veli-standalone-page">
+                    <div class="section-header">
+                        <p></p>
+                        <h1 class="section-title">Servis Yönetiminde Dijital Dönüşümü Başlatın</h1>
+                        <p class="section-subtitle">Talebinizi oluşturun, uzman ekibimiz en kısa sürede size ulaşarak
+                            platformumuzu tanıtsın ve ihtiyaçlarınıza özel çözümler sunsun.</p>
+                    </div>
+
+                    <!-- Form Bölümü -->
+                    <div class="veli-form-wrapper veli-standalone-wrapper">
+                        <div class="veli-form-info">
+                            <div class="veli-form-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Hızlı Demo Talebi</span>
+                            </div>
+                            <h2 class="veli-form-title">Operasyonunuzu Güçlendirin</h2>
+                            <p class="veli-form-description">Yoldayım ile servis süreçlerinizi dijitalleştirin,
+                                maliyetleri düşürün ve güvenliği artırın.</p>
+                            <ul class="veli-form-benefits">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    <span>Tüm paydaşlar için tek platform</span>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    <span>Anlık takip ve gelişmiş raporlama</span>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    <span>KVKK uyumlu güvenli altyapı</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="veli-form-container" id="demo-talep-form-container">
+                            <form id="demoTalepForm" class="contact-form" novalidate>
+                                <h3 class="form-title">Demo Talep Formu</h3>
+                                <input type="text" name="company" placeholder="*Şirket / Kurum Adı" required
+                                    aria-label="Şirket Adı">
+                                <input type="text" name="address" placeholder="*Adres" required aria-label="Adres">
+                                <input type="text" name="contact_person" placeholder="*Yetkili Kişi Ad Soyad" required
+                                    aria-label="Yetkili Kişi">
+                                <input type="tel" name="phone" placeholder="*Telefon Numarası" required
+                                    aria-label="Telefon Numarası">
+                                <input type="email" name="email" placeholder="E-posta Adresi"
+                                    aria-label="E-posta Adresi">
+                                <select name="fleet_size" aria-label="Filo Büyüklüğü">
+                                    <option value="">*Filo büyüklüğünü seçin</option>
+                                    <option value="1-20">1-20 araç</option>
+                                    <option value="21-50">21-50 araç</option>
+                                    <option value="51-100">51-100 araç</option>
+                                    <option value="100+">100+ araç</option>
+                                </select>
+                                <textarea name="message" placeholder="Mesajınız" aria-label="Mesajınız"></textarea>
+                                <button type="submit" class="demo-button">Demo Talep Et</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Okullar sayfa içeriği -->
         <section id="okullar-page" class="okullar-page-theme is-hidden">
             <div class="container">
@@ -819,7 +901,7 @@
                         <h1 class="section-title">Okul Yönetimi İçin Tek Platform</h1>
                         <p class="section-subtitle">Servis operasyonlarınızı dijitalleştirin, verimliliği artırın ve
                             veli memnuniyetini en üst düzeye çıkarın. Tüm kontrol tek bir panelde.</p>
-                        <button class="demo-button request-demo-btn">Demo Talep Edin</button>
+                        <a href="/demo-talep" class="demo-button" id="okullar-demo-link">Demo Talep Edin</a>
                     </div>
                     <div class="okullar-hero-visual">
                         <img src="https://placehold.co/1000x280/6A1B9A/FFFFFF?text=Yönetim+Paneli" alt="Yönetim Paneli"
@@ -1008,7 +1090,7 @@
                         <h1 class="section-title">Servis Operasyonlarında Yeni Bir Dönem</h1>
                         <p class="section-subtitle">Yoldayım ile filonuzu daha verimli yönetin, maliyetleri düşürün ve
                             sürücülerinizin performansını en üst düzeye çıkarın.</p>
-                        <button class="demo-button request-demo-btn">Demo Talep Edin</button>
+                        <a href="/demo-talep" class="demo-button" id="servis-demo-link">Demo Talep Edin</a>
                     </div>
                     <div class="okullar-hero-visual">
                         <img src="https://placehold.co/1000x280/455A64/FFFFFF?text=Servis+Yönetim+Paneli"
