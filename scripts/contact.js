@@ -34,6 +34,7 @@ function setupForm(formId) {
         const phone = form.querySelector('input[name="phone"]');
         const fleetSize = form.querySelector('select[name="fleet_size"]');
         const message = form.querySelector('textarea[name="message"]');
+        const referralSource = form.querySelector('input[name="acquisition_channel"]');
 
         if (company && company.value) formData.append('company', company.value);
         if (address && address.value) formData.append('address', address.value);
@@ -42,10 +43,12 @@ function setupForm(formId) {
         if (phone && phone.value) formData.append('phone', phone.value);
         if (fleetSize && fleetSize.value) formData.append('fleet_size', fleetSize.value);
         if (message && message.value) formData.append('message', message.value);
+        if (referralSource && referralSource.value) formData.append('acquisition_channel', referralSource.value);
 
         // Helpful subject for Formspree dashboard/email
         const subject = formId === 'demoTalepForm' ? 'Yoldayım - Hızlı Demo Talebi' : 'Yoldayım - Demo Talebi';
         formData.append('_subject', subject);
+
 
         try {
 
@@ -149,6 +152,14 @@ export function initContact() {
     // Initialize forms
     setupForm('contactForm');
     setupForm('demoTalepForm');
+
+    // Referral tracking
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source') || 'organic_direct';
+    const sourceInputs = document.querySelectorAll('input[name="acquisition_channel"]');
+    sourceInputs.forEach(input => {
+        input.value = source;
+    });
 }
 
 
