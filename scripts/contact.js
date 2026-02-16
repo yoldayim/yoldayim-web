@@ -155,7 +155,7 @@ export function initContact() {
 
     // Referral tracking
     const urlParams = new URLSearchParams(window.location.search);
-    const source = urlParams.get('source') || 'organic_direct';
+    const source = urlParams.get('source') || 'offline_flyer_A5';
     const sourceInputs = document.querySelectorAll('input[name="acquisition_channel"]');
     sourceInputs.forEach(input => {
         input.value = source;
