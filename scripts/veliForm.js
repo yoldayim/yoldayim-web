@@ -80,9 +80,55 @@ function setupVeliForm(formId, containerId) {
     });
 }
 
+
+async function loadProvincesForDatalist() {
+    const datalist = document.getElementById('cities-datalist');
+    if (!datalist) return;
+
+    // API'den illeri çekmeyi dene
+    try {
+        const response = await fetch('https://turkiyeapi.dev/api/v1/provinces');
+        if (!response.ok) throw new Error('API Error');
+        const data = await response.json();
+
+        const sortedProvinces = data.data.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+
+        datalist.innerHTML = '';
+        sortedProvinces.forEach(province => {
+            const option = document.createElement('option');
+            option.value = province.name;
+            datalist.appendChild(option);
+        });
+
+    } catch (error) {
+        // Fallback: Statik liste
+        const provinces = [
+            "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
+            "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
+            "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkari",
+            "Hatay", "Isparta", "Mersin", "İstanbul", "İzmir", "Kars", "Kastamonu", "Kayseri", "Kırklareli", "Kırşehir",
+            "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Kahramanmaraş", "Mardin", "Muğla", "Muş", "Nevşehir",
+            "Niğde", "Ordu", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Tekirdağ", "Tokat",
+            "Trabzon", "Tunceli", "Şanlıurfa", "Uşak", "Van", "Yozgat", "Zonguldak", "Aksaray", "Bayburt", "Karaman",
+            "Kırıkkale", "Batman", "Şırnak", "Bartın", "Ardahan", "Iğdır", "Yalova", "Karabük", "Kilis", "Osmaniye", "Düzce"
+        ];
+
+        datalist.innerHTML = '';
+        provinces.sort((a, b) => a.localeCompare(b, 'tr')).forEach(province => {
+            const option = document.createElement('option');
+            option.value = province;
+            datalist.appendChild(option);
+        });
+    }
+}
+
 export function initVeliForm() {
     // Veliler sayfasındaki form
     setupVeliForm('veliForm', 'veli-form-container');
     // Bağımsız /veli-on-kayit sayfasındaki form
     setupVeliForm('veliFormStandalone', 'veli-form-container-standalone');
+
+    // İlleri datalist'e yükle
+    loadProvincesForDatalist();
 }
+
