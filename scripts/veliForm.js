@@ -22,9 +22,11 @@ function setupVeliForm(formId, containerId) {
         const fullName = form.querySelector('input[name="full_name"]');
         const phone = form.querySelector('input[name="phone"]');
         const city = form.querySelector('input[name="city"]');
+        const referralSource = form.querySelector('input[name="acquisition_channel"]');
         if (fullName) formData.append('full_name', fullName.value);
         if (phone) formData.append('phone', phone.value);
         if (city) formData.append('city', city.value);
+        if (referralSource && referralSource.value) formData.append('acquisition_channel', referralSource.value);
 
         formData.append('_subject', 'Yoldayım - Veli Ön Kayıt');
 
@@ -130,5 +132,13 @@ export function initVeliForm() {
 
     // İlleri datalist'e yükle
     loadProvincesForDatalist();
+
+    // Referral tracking
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source') || 'organic_direct';
+    const sourceInputs = document.querySelectorAll('input[name="acquisition_channel"]');
+    sourceInputs.forEach(input => {
+        input.value = source;
+    });
 }
 
