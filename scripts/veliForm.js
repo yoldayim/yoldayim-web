@@ -22,12 +22,9 @@ function setupVeliForm(formId, containerId) {
         const fullName = form.querySelector('input[name="full_name"]');
         const phone = form.querySelector('input[name="phone"]');
         const city = form.querySelector('input[name="city"]');
-        const school = form.querySelector('input[name="school"]');
-
         if (fullName) formData.append('full_name', fullName.value);
         if (phone) formData.append('phone', phone.value);
         if (city) formData.append('city', city.value);
-        if (school) formData.append('school', school.value);
 
         formData.append('_subject', 'Yoldayım - Veli Ön Kayıt');
 
