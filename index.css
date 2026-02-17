@@ -3215,12 +3215,13 @@ nav ul li a:hover {
     /* Fade-in animasyonu */
 }
 
-/* Form başarı mesajı SVG */
-.form-success-message svg {
+/* Form başarı mesajı SVG - sadece doğrudan çocuk olan */
+.form-success-message>svg {
     color: var(--suruculer-accent);
     /* Sürücüler vurgu rengi */
-    margin-bottom: 1rem;
-    /* Alt boşluk */
+    margin: 0 auto 1rem auto;
+    /* Ortalama ve Alt boşluk */
+    display: block;
 }
 
 /* Form başarı mesajı başlığı */
@@ -3995,6 +3996,7 @@ body.legal-page-active nav {
         padding: 1.5rem;
     }
 }
+
 /* App Download Section */
 .app-download-section {
     width: 100%;
@@ -4020,9 +4022,11 @@ body.legal-page-active nav {
     flex-wrap: wrap;
 }
 
-.app-store-btn, .google-play-btn {
+.app-store-btn,
+.google-play-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
     background-color: #100F15;
     color: #fff;
@@ -4033,9 +4037,10 @@ body.legal-page-active nav {
     min-width: 200px;
 }
 
-.app-store-btn:hover, .google-play-btn:hover {
+.app-store-btn:hover,
+.google-play-btn:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     background-color: #000;
 }
 
@@ -4059,6 +4064,7 @@ body.legal-page-active nav {
 }
 
 /* Koyu mod/light mod uyumu için SVG renkleri */
-.app-store-btn svg, .google-play-btn svg {
+.app-store-btn svg,
+.google-play-btn svg {
     flex-shrink: 0;
 }
