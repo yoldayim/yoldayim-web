@@ -16,27 +16,33 @@ function setupVeliForm(formId, containerId) {
             if (existingError) existingError.remove();
         }
 
-        const formspreeAction = 'https://formspree.io/f/xojnevdp';
+        const apiUrl = 'https://api.yoldayim.com/api/v1/form-submissions';
 
-        const formData = new FormData();
         const fullName = form.querySelector('input[name="full_name"]');
         const phone = form.querySelector('input[name="phone"]');
         const city = form.querySelector('input[name="city"]');
         const childSchool = form.querySelector('input[name="child_school"]');
         const referralSource = form.querySelector('input[name="acquisition_channel"]');
-        if (fullName) formData.append('full_name', fullName.value);
-        if (phone) formData.append('phone', phone.value);
-        if (city) formData.append('city', city.value);
-        if (childSchool && childSchool.value) formData.append('child_school', childSchool.value);
-        if (referralSource && referralSource.value) formData.append('acquisition_channel', referralSource.value);
 
-        formData.append('_subject', 'Yoldayım - Veli Ön Kayıt');
+        const payload = {
+            form_type: 'parent_pre_registration',
+            acquisition_channel: referralSource?.value || 'organic_flyer_A5',
+            fields: {
+                full_name: fullName?.value || '',
+                phone: phone?.value || '',
+                city: city?.value || '',
+                school_name: childSchool?.value || ''
+            }
+        };
 
         try {
-            const response = await fetch(formspreeAction, {
+            const response = await fetch(apiUrl, {
                 method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
             });
 
             if (!response.ok) {

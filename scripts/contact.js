@@ -18,15 +18,10 @@ function setupForm(formId) {
             if (existingError) existingError.remove();
         }
 
-        // Formspree configuration
-        let formspreeAction = 'https://formspree.io/f/xojnevdp';
-        if (formId === 'demoTalepForm') {
-            formspreeAction = 'https://formspree.io/f/xzzjroor';
-        }
-        const formspreeMethod = 'POST';
+        // API configuration
+        const apiUrl = 'https://api.yoldayim.com/api/v1/form-submissions';
 
-        // Build form data from existing fields in the HTML form
-        const formData = new FormData();
+        // Prepare data payload
         const company = form.querySelector('input[name="company"]');
         const address = form.querySelector('input[name="address"]');
         const contactPerson = form.querySelector('input[name="contact_person"]');
@@ -36,26 +31,29 @@ function setupForm(formId) {
         const message = form.querySelector('textarea[name="message"]');
         const referralSource = form.querySelector('input[name="acquisition_channel"]');
 
-        if (company && company.value) formData.append('company', company.value);
-        if (address && address.value) formData.append('address', address.value);
-        if (contactPerson && contactPerson.value) formData.append('contact_person', contactPerson.value);
-        if (email && email.value) formData.append('email', email.value);
-        if (phone && phone.value) formData.append('phone', phone.value);
-        if (fleetSize && fleetSize.value) formData.append('fleet_size', fleetSize.value);
-        if (message && message.value) formData.append('message', message.value);
-        if (referralSource && referralSource.value) formData.append('acquisition_channel', referralSource.value);
-
-        // Helpful subject for Formspree dashboard/email
-        const subject = formId === 'demoTalepForm' ? 'Yoldayım - Hızlı Demo Talebi' : 'Yoldayım - Demo Talebi';
-        formData.append('_subject', subject);
-
+        const payload = {
+            form_type: 'demo_request',
+            acquisition_channel: referralSource?.value || 'offline_flyer_A5',
+            fields: {
+                company_name: company?.value || '',
+                address: address?.value || '',
+                contact_name: contactPerson?.value || '',
+                contact_phone: phone?.value || '',
+                contact_email: email?.value || '',
+                fleet_size: fleetSize?.value || '',
+                message: message?.value || ''
+            }
+        };
 
         try {
 
-            const response = await fetch(formspreeAction, {
-                method: formspreeMethod,
-                headers: { 'Accept': 'application/json' },
-                body: formData
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
             });
 
             if (!response.ok) {
@@ -101,8 +99,8 @@ function setupForm(formId) {
             /* eslint-disable no-console */
             console.error('[ContactForm] Submit failed', {
                 error,
-                action: formspreeAction,
-                method: formspreeMethod
+                action: apiUrl,
+                method: 'POST'
             });
             /* eslint-enable no-console */
         }
